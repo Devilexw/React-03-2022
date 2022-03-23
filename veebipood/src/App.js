@@ -1,10 +1,9 @@
+
 import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Avaleht from './pages/Avaleht';
 import Ostukorv from './pages/Ostukorv';
 
-//cmd - npm start järgselt
-//brauseris  - parem klõps - inspect - console
 function App() {
   return (
     <div>
@@ -26,3 +25,4 @@ function App() {
   );
 }
 
+export default App;
