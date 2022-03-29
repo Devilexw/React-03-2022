@@ -18,6 +18,9 @@ function Ostukorv() {
         muudaOstukorvi(ostukorv.slice());
     }
 
+
+  
+
     return(
         <div>
             {ostukorv.length > 0 && 
