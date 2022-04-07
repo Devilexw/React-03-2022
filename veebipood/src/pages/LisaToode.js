@@ -12,10 +12,18 @@ function LisaToode() {
         console.log(aktiivneRef.current.checked)
         const toode = {
             nimi: nimiRef.current.value,
-            hind: hindRef.current.value,
+            hind: Number(hindRef.current.value),
             aktiivne: aktiivneRef.current.checked
         }
         console.log(toode);
+        let tooted = localStorage.getItem("tooted");
+        if (tooted !== null) {
+            tooted = JSON.parse(tooted);
+        } else {
+            tooted = [];
+        }
+        tooted.push(toode);
+        localStorage.setItem("tooted", JSON.stringify(tooted));
     }
 
     return (

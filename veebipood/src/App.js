@@ -7,6 +7,7 @@ import Avaleht from './pages/Avaleht';
 import Ostukorv from './pages/Ostukorv';
 import LisaToode from './pages/LisaToode';
 import HaldaTooteid from './pages/HaldaTooteid';
+import VaataToode from './pages/VaataToode';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/' exact element={ <Avaleht /> } />
         {/* localhost:3000/ostukorv */}
         <Route path='/ostukorv' exact element={ <Ostukorv />} />
+        <Route path='/toode/:toodeId' exact element={ <VaataToode />} />
         <Route path='/admin' exact element={ <AdminHome />  } />
         <Route path='/admin/lisa-toode' exact element={ <LisaToode />} />
         <Route path='/admin/halda-tooteid' exact element={ <HaldaTooteid />  } />
