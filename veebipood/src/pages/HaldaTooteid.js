@@ -30,7 +30,9 @@ function HaldaTooteid() {
                 <div>{element.nimi}</div>
                 <div>{element.hind}</div>
                 <button onClick={() => kustuta(element)}>Kustuta</button>
-                <button>Muuda</button>
+                <Link to={"/admin/muuda/" + element.nimi.replace(" ", "-").toLowerCase()}>
+                    <button>Muuda</button>
+                </Link>
             </div>
         )}
     </div>)

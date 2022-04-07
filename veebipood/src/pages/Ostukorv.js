@@ -39,6 +39,28 @@ function Ostukorv() {
         return koguSumma;
     }
 
+    function maksma() {
+        const andmed ={       
+            "api_username": "92ddcfab96e34a5f",
+            "account_name": "EUR3D1",
+            "amount": arvutaOstukorviKoguSumma(),
+            "order_reference": Math.random() * 999999,
+            "nonce": "a9b7f7e7943erg5456773154a01b9902" + new Date() + Math.random() * 999999,
+            "timestamp": new Date(),
+            "customer_url": "https://www.postimees.ee"               
+        }
+
+        fetch("https://igw-demo.every-pay.com/api/v4/payments/oneoff",{
+            method: "POST",
+            body: JSON.stringify(andmed),
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Basic OTJkZGNmYWI5NmUzNGE1Zjo4Y2QxOWU5OWU5YzJjMjA4ZWU1NjNhYmY3ZDBlNGRhZA=="
+            }
+        }).then(response => response.json())
+        .then(body => window.location.href = body.payment_link);
+    }
+
     return(
         <div>
             {ostukorv.length > 0 && 
@@ -56,7 +78,10 @@ function Ostukorv() {
                     <button onClick={() => lisaToode(element)}>Lisa</button>
                 </div>
             ) }
-            <div>KOKKU: {arvutaOstukorviKoguSumma()} €</div>
+            {ostukorv.length > 0 && <div>
+                <div>KOKKU: {arvutaOstukorviKoguSumma()} €</div>
+                <button onClick={() => maksma()}>MAKSMA</button>
+            </div>}
         </div>
         )
 }
